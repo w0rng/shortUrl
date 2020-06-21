@@ -7,6 +7,10 @@ class Link(models.Model):
     short_link = models.SlugField(verbose_name='Сокращенная ссылка')
     number_clicks = models.IntegerField(default=0, verbose_name='Число переходов')
 
+    class Meta:
+        verbose_name = u'Ссылка'
+        verbose_name_plural = u'Ссылки'
+
     def clicked(self):
         self.number_clicks += 1
         self.save()
