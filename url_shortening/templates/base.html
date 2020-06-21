@@ -4,9 +4,8 @@
 <head>
     <title>Сокращатель</title>
     {% load static %}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'shortenersite/css/custom.css' %}" />
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <script type="text/javascript">
@@ -27,14 +26,44 @@
 
     function returnSuccess(data, textStatus, jqXHR) {
         if (data.url) {
-            $('#url-result').text(data.url);
+            $('#url-result').text(data.url).css({ 'color': 'green' });
             $('#url').val("");
         } else {
-            $('#url-result').text("Do not submit blank.");
+            $('#url-result').text("Введите ссылку").css({ 'color': 'red' });
         }
 
     }
 </script>
+
+<style>
+    #content {
+        margin-top: 20px;
+        margin-bottom: 60px;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    header {
+        border-bottom: 1px solid #eeeeee;
+        margin-bottom: 30px;
+        padding-bottom: 10px;
+        clear: both;
+    }
+
+    #wrap {
+        margin: 15% auto;
+        padding: 10px;
+        text-align: center;
+        width: 40%;
+    }
+
+    #url-result {
+        color: dimgrey;
+        display: hidden;
+    }
+</style>
 
 <body>
     <div id="wrap">
